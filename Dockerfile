@@ -7,7 +7,7 @@ USER 0
 
 ENV HOME=/opt/app-root \
     JAVA_VER=1.8.0 \
-    APP_VERSION=0.7.3 \
+    APP_VERSION=0.8.1 \
     CEREBRO_CONF=/opt/app-root/cerebro/conf
 
 RUN yum install -y --setopt=tsflags=nodocs \
