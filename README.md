@@ -1,2 +1,2 @@
 # openshift-cerebro
-cerebro running on Openshift to support Openshift logging
+[cerebro](https://github.com/lmenezes/cerebro) running on Openshift to support Openshift logging
