@@ -4,35 +4,6 @@ metadata:
   name: cerebro-template
 objects:
 - apiVersion: v1
-  kind: BuildConfig
-  metadata:
-    labels:
-      build: openshift-cerebro
-    name: openshift-cerebro
-  spec:
-    output:
-      to:
-        kind: ImageStreamTag
-        name: openshift-cerebro:latest
-    source:
-      git:
-        uri: ${BUILD_REPO_URI}
-      type: Git
-    strategy:
-      dockerStrategy:
-        from:
-          kind: DockerImage
-          name: centos:centos7
-      type: Docker
-    triggers:
-    - type: ConfigChange
-- apiVersion: v1
-  kind: ImageStream
-  metadata:
-    labels:
-      build: openshift-cerebro
-    name: openshift-cerebro
-- apiVersion: v1
   kind: Service
   metadata:
     labels:
@@ -102,7 +73,7 @@ objects:
         - env:
           - name: ES_CLUSTER_ADDRESS
             value: ${ELASTICSEARCH_CLUSTER_ADDRESS}
-          image: ${IMAGE_PREFIX}/origin-cerebro:${IMAGE_VERSION}
+          image: ${IMAGE_PREFIX}/cerebro:${IMAGE_VERSION}
           imagePullPolicy: Always
           name: cerebro
           ports:
@@ -130,7 +101,7 @@ objects:
     - type: ConfigChange
 parameters:
 - name: IMAGE_PREFIX
-  value: "docker-registry.engineering.redhat.com/ocp-int-services/origin-cerebro"
+  value: "docker.io/4nn0"
   required: true
 - name: IMAGE_VERSION
   value: "latest"
