@@ -28,6 +28,7 @@ RUN cd ${HOME} && \
     mv cerebro-${APP_VERSION} cerebro && \
     rm cerebro-${APP_VERSION}.zip
 
+COPY utils/** /usr/local/bin/
 COPY conf/* ${HOME}/cerebro/
 COPY run.sh ${HOME}
 
