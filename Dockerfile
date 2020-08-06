@@ -11,7 +11,7 @@ ENV HOME=/opt/app-root \
     CEREBRO_CONF=/opt/app-root/cerebro/conf
 
 RUN yum install -y --setopt=tsflags=nodocs \
-                java-1.8.0-openjdk-headless unzip gettext \
+                java-1.8.0-openjdk-headless unzip gettext openssl \
                 && \
 	yum update -y && \
     yum clean all
